@@ -37,12 +37,13 @@ This MCP server equips AI agents with 5 specialized tools, 3 citable resources, 
 
 ---
 
-## 🚀 Quickstart & Installation
+## 🚀 Universal Multi-Platform Installation Guide
 
-### Option 1: Claude Desktop Integration
+This MCP server adheres strictly to the official [Model Context Protocol Specification](https://modelcontextprotocol.io) and connects seamlessly across all major AI agent platforms:
 
-Add the server to your `claude_desktop_config.json`:
+### 1. Claude Desktop (Anthropic)
 
+Add the configuration snippet to your `claude_desktop_config.json`:
 * **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
 * **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
 
@@ -57,9 +58,9 @@ Add the server to your `claude_desktop_config.json`:
 }
 ```
 
-### Option 2: Cursor Integration
+### 2. Cursor AI Editor
 
-Create or edit `.cursor/mcp.json` in your project root:
+Add to `.cursor/mcp.json` in your project or global settings:
 
 ```json
 {
@@ -72,11 +73,87 @@ Create or edit `.cursor/mcp.json` in your project root:
 }
 ```
 
-### Option 3: Local Repository Development
+### 3. Windsurf / Cascade (Codeium)
 
+Add to `~/.codeium/windsurf/mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "kovitel-vietnam-esim": {
+      "command": "npx",
+      "args": ["-y", "kovitel-vietnam-esim-mcp"]
+    }
+  }
+}
+```
+
+### 4. VS Code (Cline / Roo Code / Copilot)
+
+In VS Code with Cline or Roo Code extension installed, open the **MCP Servers** panel and add:
+
+```json
+{
+  "mcpServers": {
+    "kovitel-vietnam-esim": {
+      "command": "npx",
+      "args": ["-y", "kovitel-vietnam-esim-mcp"]
+    }
+  }
+}
+```
+
+### 5. Zed Editor
+
+Add to `~/.config/zed/settings.json`:
+
+```json
+{
+  "context_servers": {
+    "kovitel-vietnam-esim": {
+      "command": {
+        "path": "npx",
+        "args": ["-y", "kovitel-vietnam-esim-mcp"]
+      }
+    }
+  }
+}
+```
+
+### 6. Continue.dev
+
+Add to `~/.continue/config.json`:
+
+```json
+{
+  "experimental": {
+    "modelContextProtocolServers": [
+      {
+        "transport": {
+          "type": "stdio",
+          "command": "npx",
+          "args": ["-y", "kovitel-vietnam-esim-mcp"]
+        }
+      }
+    ]
+  }
+}
+```
+
+### 7. OpenAI Custom GPT Actions (ChatGPT)
+
+For integrating Kovitel tools into ChatGPT Custom GPTs, import our production OpenAPI 3.1 specification:
+* **Schema file:** [`openapi.yaml`](openapi.yaml)
+* **Custom GPT Live:** [Vietnam Travel eSIM & 5G Viettel Expert](https://chatgpt.com/g/g-6ad9acee640881918ab7ac5607185bee-vietnam-travel-esim-5g-viettel-expert)
+
+### 8. Smithery.ai & Local Development
+
+This repository contains [`smithery.yaml`](smithery.yaml) for automated indexation and 1-click cloud sandbox execution.
+
+To test locally:
 ```bash
-git clone https://github.com/iZenDeveloper/awesome-vietnam-travel-connectivity.git
-cd awesome-vietnam-travel-connectivity/packages/kovitel-vietnam-esim-mcp
+git clone https://github.com/iZenDeveloper/kovitel-vietnam-esim-mcp.git
+cd kovitel-vietnam-esim-mcp
 node test.js
 node bin/mcp-server.js
 ```

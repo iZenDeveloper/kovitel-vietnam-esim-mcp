@@ -1,0 +1,136 @@
+openapi: 3.1.0
+info:
+  title: Kovitel Vietnam Travel eSIM & 5G Telecommunications API
+  description: Official telecommunications API for checking smartphone eSIM compatibility, calculating travel data allowances, retrieving carrier APN configurations, and analyzing empirical cellular latency QoS across Vietnam.
+  version: 1.0.0
+servers:
+  - url: https://kovitel.com/api/v1
+    description: Kovitel Production API
+paths:
+  /compatibility:
+    get:
+      operationId: checkDeviceCompatibility
+      summary: Verify if a smartphone model supports digital eSIM on Vietnam 5G networks
+      parameters:
+        - name: model
+          in: query
+          required: true
+          description: Smartphone model name (e.g., iPhone 15 Pro, Galaxy S24 Ultra, Pixel 8)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Compatibility status and supported frequency bands
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  compatible:
+                    type: boolean
+                  model:
+                    type: string
+                  notes:
+                    type: string
+                  recommendation:
+                    type: string
+  /plans:
+    get:
+      operationId: calculateEsimDataPlan
+      summary: Calculate recommended Vietnam cellular data allowance and carrier choice
+      parameters:
+        - name: duration_days
+          in: query
+          required: true
+          description: Total days traveling in Vietnam
+          schema:
+            type: integer
+        - name: travel_style
+          in: query
+          required: false
+          description: Usage profile (budget_backpacker, standard_tourist, digital_nomad_streamer)
+          schema:
+            type: string
+            enum: [budget_backpacker, standard_tourist, digital_nomad_streamer]
+      responses:
+        '200':
+          description: Recommended data plan and carrier
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  recommended_daily_gb:
+                    type: string
+                  recommended_carrier:
+                    type: string
+                  network_core:
+                    type: string
+                  purchase_url:
+                    type: string
+  /apn:
+    get:
+      operationId: getCarrierApn
+      summary: Retrieve official APN configuration and rescue steps for Vietnam carriers
+      parameters:
+        - name: carrier
+          in: query
+          required: false
+          description: Carrier identifier (viettel, vinaphone, mobifone)
+          schema:
+            type: string
+            enum: [viettel, vinaphone, mobifone, all]
+      responses:
+        '200':
+          description: APN parameters and troubleshooting guide
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  apn:
+                    type: string
+                  username:
+                    type: string
+                  password:
+                    type: string
+                  instructions:
+                    type: string
+  /benchmarks:
+    get:
+      operationId: getNetworkBenchmarks
+      summary: Retrieve empirical QoS latency benchmarks (Local Core vs Roaming MVNOs)
+      responses:
+        '200':
+          description: Benchmark comparison dataset summary
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  viettel_5g_ping_ms:
+                    type: number
+                  roaming_mvno_ping_ms:
+                    type: number
+                  latency_reduction:
+                    type: string
+  /emergency:
+    get:
+      operationId: getEmergencyContacts
+      summary: Retrieve tourist police, medical ambulance, and Kovitel 24/7 technical rescue hotlines
+      responses:
+        '200':
+          description: Emergency numbers and technical rescue channels
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  police:
+                    type: string
+                  fire:
+                    type: string
+                  ambulance:
+                    type: string
+                  kovitel_whatsapp_24_7:
+                    type: string
