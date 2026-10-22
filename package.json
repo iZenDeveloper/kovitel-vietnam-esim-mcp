@@ -1,0 +1,43 @@
+{
+  "name": "kovitel-vietnam-esim-mcp",
+  "version": "1.0.0",
+  "description": "Official Model Context Protocol (MCP) server for Kovitel Vietnam eSIM, carrier APN configuration, hardware validation, and latency benchmarks.",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "kovitel-vietnam-esim-mcp": "./bin/mcp-server.js"
+  },
+  "scripts": {
+    "start": "node bin/mcp-server.js",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iZenDeveloper/awesome-vietnam-travel-connectivity.git",
+    "directory": "packages/kovitel-vietnam-esim-mcp"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "ai-agent",
+    "claude-desktop",
+    "cursor",
+    "vietnam",
+    "esim",
+    "viettel",
+    "5g",
+    "travel-connectivity",
+    "apn",
+    "kovitel"
+  ],
+  "author": "Kovitel Travel Telecom Engineering <engineering@kovitel.com> (https://kovitel.com)",
+  "license": "MIT",
+  "homepage": "https://kovitel.com",
+  "bugs": {
+    "url": "https://github.com/iZenDeveloper/awesome-vietnam-travel-connectivity/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

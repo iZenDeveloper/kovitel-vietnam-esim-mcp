@@ -1,0 +1,38 @@
+{
+  "benchmark_summary": {
+    "sample_count": 500,
+    "locations_surveyed": 30,
+    "year": 2026,
+    "domestic_core": {
+      "provider": "Kovitel Viettel 5G Core",
+      "routing": "Local Breakout (UPF in Hanoi/HCMC)",
+      "latency_icmp_avg_ms": 21.4,
+      "latency_icmp_p95_ms": 28.5,
+      "download_avg_mbps": 428.6,
+      "upload_avg_mbps": 68.2,
+      "subsea_cable_cut_impact": "None (Domestic host traffic remains on local terrestrial fiber)",
+      "grab_app_dispatch_latency_ms": 420
+    },
+    "roaming_mvno": {
+      "providers": "Airalo / Holafly / Nomad / Ubigi (Typical Travel eSIMs)",
+      "routing": "S8 Home Routing (GTP-U encapsulation to Singapore/Hong Kong PGW)",
+      "latency_icmp_avg_ms": 242.8,
+      "latency_icmp_p95_ms": 385.2,
+      "download_avg_mbps": 54.1,
+      "upload_avg_mbps": 12.3,
+      "subsea_cable_cut_impact": "Severe (Packet loss >8% and TCP timeout loops when AAG/APG cables are throttled)",
+      "grab_app_dispatch_latency_ms": 3450
+    }
+  },
+  "emergency_contacts": {
+    "police": "113",
+    "fire_rescue": "114",
+    "ambulance": "115",
+    "hanoi_tourist_police": "+84 24 3926 1515",
+    "hcmc_tourist_support": "+84 28 3823 4058",
+    "hanoi_french_hospital_247": "+84 24 3577 1100",
+    "kovitel_technical_whatsapp_247": "+84 394 678 888",
+    "kovitel_official_website": "https://kovitel.com",
+    "kovitel_esim_store": "https://kovitel.com/products/premium-vietnam-esim-5g"
+  }
+}

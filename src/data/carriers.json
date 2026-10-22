@@ -1,0 +1,64 @@
+{
+  "carriers": [
+    {
+      "name": "Viettel Telecom",
+      "code": "viettel",
+      "market_share": "54.2%",
+      "bts_towers": "70,000+",
+      "recommended": true,
+      "recommendation_reason": "Mandatory for mountain travel (Ha Giang Loop, Sa Pa, Cao Bang) and island cruises (Ha Long, Phu Quoc). Operates the largest nationwide standalone 5G core network.",
+      "apn": "v-internet",
+      "username": "",
+      "password": "",
+      "apn_type": "default,supl",
+      "auth_type": "None / PAP",
+      "data_roaming_required": true,
+      "bands": {
+        "5g_nr": ["n77 (3700-3800 MHz)", "n78 (3500 MHz)", "n28 (700 MHz - rural penetration)"],
+        "4g_lte": ["Band 3 (1800 MHz)", "Band 7 (2600 MHz)", "Band 8 (900 MHz)", "Band 1 (2100 MHz)"]
+      },
+      "troubleshooting": [
+        "Ensure Data Roaming is turned ON in Cellular settings.",
+        "Set Network Selection to Automatic.",
+        "If APN is blank, create new APN with Name 'Viettel' and APN 'v-internet'.",
+        "Toggle Airplane mode for 10 seconds to force attach to the nearest BTS."
+      ]
+    },
+    {
+      "name": "Vinaphone (VNPT)",
+      "code": "vinaphone",
+      "market_share": "28.5%",
+      "bts_towers": "45,000+",
+      "recommended": false,
+      "recommendation_reason": "Strong in major metropolitan centers (Hanoi, HCMC, Da Nang). Coverage drops in deep Northern mountain passes.",
+      "apn": "m3-world",
+      "username": "mms",
+      "password": "mms",
+      "apn_type": "default",
+      "auth_type": "PAP",
+      "data_roaming_required": true,
+      "bands": {
+        "5g_nr": ["n77 (3700-3800 MHz)"],
+        "4g_lte": ["Band 3 (1800 MHz)", "Band 1 (2100 MHz)"]
+      }
+    },
+    {
+      "name": "MobiFone",
+      "code": "mobifone",
+      "market_share": "15.3%",
+      "bts_towers": "30,000+",
+      "recommended": false,
+      "recommendation_reason": "Good urban coverage, frequent dead zones on rural highways.",
+      "apn": "m-wap",
+      "username": "mms",
+      "password": "mms",
+      "apn_type": "default",
+      "auth_type": "PAP",
+      "data_roaming_required": true,
+      "bands": {
+        "5g_nr": ["n77 (3800 MHz)"],
+        "4g_lte": ["Band 3 (1800 MHz)", "Band 8 (900 MHz)"]
+      }
+    }
+  ]
+}
